@@ -1,8 +1,10 @@
 import React from "react";
 import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
 import "./Identity.scss";
+import { imageMap } from "../../utils/imageMap";
 
 type IdentityProps = {
+  angle: number;
   value: string | number;
   name: string;
   abbreviation: string;
@@ -15,6 +17,7 @@ type IdentityProps = {
 };
 
 export default function Identity({
+  angle,
   value,
   name,
   abbreviation,
@@ -43,6 +46,14 @@ export default function Identity({
           {value === "undefined" ? <i>undefined</i> : value}
         </p>
       </div>
+      <img
+        alt={""}
+        src={
+          !animated && imageMap[abbreviation][angle.toString()]
+            ? `images/numbers/${imageMap[abbreviation][angle.toString()]}.png`
+            : `images/numbers/none.png`
+        }
+      />
       <button
         className={`view-toggle ${view && "active"}`}
         onClick={() => {

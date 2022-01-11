@@ -1,5 +1,5 @@
 $button-radius: 6px;
-$theme: rgb(0, 153, 255);
+$theme: rgb(0, 129, 235);
 $theme-light: rgb(196, 218, 233);
 $theme-dark: rgb(0, 88, 139);
 $control-height: 36px;
@@ -13,10 +13,11 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
-  background-color: $theme-light;
+  background-color: rgb(208, 210, 219);
 }
 main {
   display: flex;
+  position: relative;
   flex-direction: row;
   gap: 36px;
 }
@@ -28,11 +29,6 @@ main {
 }
 label {
   cursor: pointer;
-}
-canvas {
-  border: 1px solid grey;
-  background-color: white;
-  border-radius: $button-radius;
 }
 div[role="group"] {
   display: flex;
@@ -96,7 +92,13 @@ input {
   padding-left: 8px;
   border-radius: $button-radius;
   border: 1px solid grey;
-  width: 70px;
+  width: 80px;
+}
+.preset-angles {
+  display: flex;
+  button {
+    flex-grow: 1;
+  }
 }
 .flex-center-between {
   display: flex;
@@ -110,7 +112,11 @@ input {
   border-radius: $button-radius;
   background-color: white;
   padding: 24px;
-  font-size: xx-large;
+
+  h1 {
+    font-size: xx-large;
+    font-weight: normal;
+  }
 }
 .identities-row {
   display: flex;

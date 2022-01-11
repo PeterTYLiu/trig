@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import degToRad from "../../utils/degToRad";
+import "./MainGraph.scss";
 
 type MainGraphProps = {
   angle: number;
@@ -24,7 +25,7 @@ export default function MainGraph({
   const canvasSideLength = 670;
   const center = canvasSideLength / 2;
   const radius = 160;
-  const markerHeight = 7;
+  const markerHeight = 8;
   // Styling
   const sinAndCscColor = "#f33";
   const cosAndSecColor = "#55c400";
@@ -49,7 +50,7 @@ export default function MainGraph({
     ctx.lineTo(center, canvasSideLength);
     ctx.stroke();
     // Markers
-    ctx.strokeStyle = "#aaa";
+    ctx.strokeStyle = "#999";
     // x-2
     ctx.beginPath();
     ctx.moveTo(center - 2 * radius, center - markerHeight);
@@ -151,10 +152,24 @@ export default function MainGraph({
   }, [angle, viewSin, viewCos, viewTan, viewCsc, viewCot, viewSec]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={canvasSideLength}
-      height={canvasSideLength}
-    />
+    <div id="canvas-background">
+      <p id="I" className="quadrant">
+        I
+      </p>
+      <p id="II" className="quadrant">
+        II
+      </p>
+      <p id="III" className="quadrant">
+        III
+      </p>
+      <p id="IV" className="quadrant">
+        IV
+      </p>
+      <canvas
+        ref={canvasRef}
+        width={canvasSideLength}
+        height={canvasSideLength}
+      />
+    </div>
   );
 }

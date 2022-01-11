@@ -1,0 +1,34 @@
+@import "./../../index.scss";
+
+#canvas-background {
+  position: relative;
+  width: 670px;
+  height: 670px;
+  border-radius: $button-radius;
+  border: 1px solid grey;
+  background: white;
+  user-select: none;
+  .quadrant {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    padding: 20px 30px;
+    position: absolute;
+    font-size: 2rem;
+    color: #ddd;
+  }
+  #I {
+    top: 0;
+    right: 0;
+  }
+  #II {
+    top: 0;
+    left: 0;
+  }
+  #III {
+    bottom: 0;
+    left: 0;
+  }
+  #IV {
+    bottom: 0;
+    right: 0;
+  }
+}

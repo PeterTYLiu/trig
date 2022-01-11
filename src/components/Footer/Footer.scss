@@ -1,0 +1,12 @@
+Footer {
+  position: absolute;
+  width: 300px;
+  opacity: 0.3;
+  bottom: 12px;
+  left: calc(50% - 150px);
+  p {
+    margin-bottom: 6px;
+    font-size: 12px;
+    text-align: center;
+  }
+}

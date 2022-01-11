@@ -1,6 +1,9 @@
 @import "../../index.scss";
 
 .identity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
   border-radius: $button-radius;
   padding: 16px;
@@ -8,11 +11,17 @@
   //   box-shadow: 0px 2px 10px #00000033;
   flex-basis: 150px;
   flex-grow: 1;
+  img {
+    width: 45px;
+    height: 55px;
+    object-fit: contain;
+  }
   .title {
     font-size: 0.8rem;
   }
   .description {
     font-size: 12px;
+    color: grey;
   }
   .value {
     margin-top: 4px;

@@ -1,4 +1,4 @@
-export default imageMap = {
+export const imageMap: Record<string, Record<string, string>> = {
   sin: {
     0: "0",
     30: "1over2",
