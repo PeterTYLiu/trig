@@ -1,0 +1,42 @@
+@import "../../index.scss";
+
+.identity {
+  position: relative;
+  border-radius: $button-radius;
+  padding: 16px;
+  background: white;
+  //   box-shadow: 0px 2px 10px #00000033;
+  flex-basis: 150px;
+  flex-grow: 1;
+  .title {
+    font-size: 0.8rem;
+  }
+  .description {
+    font-size: 12px;
+  }
+  .value {
+    margin-top: 4px;
+  }
+  button {
+    &:hover {
+      border-color: $theme;
+    }
+    cursor: pointer;
+    padding: 0;
+    border: 1px solid lightgrey;
+    background: #eee;
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    display: grid;
+    place-items: center;
+    height: 26px;
+    width: 26px;
+    border-radius: 99px;
+    color: rgb(161, 161, 161);
+    &.active {
+      color: $theme;
+      background: white;
+    }
+  }
+}
