@@ -35,9 +35,10 @@ export default function MainGraph({
 
   useEffect(() => {
     // Constants
+    const canvas = canvasRef.current;
     const XCoordOnCircle = center + radius * Math.cos(degToRad(360 - angle));
     const YCoordOnCircle = center + radius * Math.sin(degToRad(360 - angle));
-    const canvas = canvasRef.current;
+
     //@ts-ignore
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvasSideLength, canvasSideLength);

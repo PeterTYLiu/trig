@@ -48,21 +48,15 @@ function App() {
         />
         <div className="controls">
           <div className="flex-center-between">
-            <div className="flex-center-between switch">
-              <label htmlFor="animate">Animate</label>
-              <Switch.Root
-                checked={animated}
-                defaultChecked
-                id="animate"
-                onCheckedChange={(checked) => {
-                  setAnimated(checked);
-                  setAngle(angle % 360);
-                }}
-              >
-                <Switch.Thumb />
-              </Switch.Root>
-            </div>
-            <div className="flex-center-between switch">
+            <button
+              onClick={() => {
+                setAnimated(!animated);
+                setAngle(angle % 360);
+              }}
+            >
+              {animated ? "⏸️ Pause" : "▶️ Play"}
+            </button>
+            {/* <div className="flex-center-between switch">
               <label htmlFor="showtri">Triangle</label>
               <Switch.Root
                 checked={viewTriangle}
@@ -74,7 +68,7 @@ function App() {
               >
                 <Switch.Thumb />
               </Switch.Root>
-            </div>
+            </div> */}
 
             <ToggleGroup.Root
               type="single"
@@ -84,13 +78,13 @@ function App() {
                 value="degrees"
                 onClick={() => setDisplayRadians(false)}
               >
-                deg
+                degrees
               </ToggleGroup.Item>
               <ToggleGroup.Item
                 value="radians"
                 onClick={() => setDisplayRadians(true)}
               >
-                rad
+                radians
               </ToggleGroup.Item>
             </ToggleGroup.Root>
           </div>
@@ -228,9 +222,9 @@ function App() {
               animated={animated}
             />
           </div>
+          <Footer />
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
