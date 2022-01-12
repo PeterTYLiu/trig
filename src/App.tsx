@@ -14,6 +14,7 @@ function App() {
   // States
   const [angle, setAngle] = useState(0);
   const [animated, setAnimated] = useState(true);
+  const [viewTriangle, setViewTriangle] = useState(true);
   const [displayRadians, setDisplayRadians] = useState(false);
   const [viewSin, setViewSin] = useState(true);
   const [viewCos, setViewCos] = useState(true);
@@ -37,6 +38,7 @@ function App() {
       <main>
         <MainGraph
           angle={angle}
+          viewTriangle={viewTriangle}
           viewCos={viewCos}
           viewCot={viewCot}
           viewCsc={viewCsc}
@@ -46,7 +48,7 @@ function App() {
         />
         <div className="controls">
           <div className="flex-center-between">
-            <div className="flex-center-between" id="switch">
+            <div className="flex-center-between switch">
               <label htmlFor="animate">Animate</label>
               <Switch.Root
                 checked={animated}
@@ -55,6 +57,19 @@ function App() {
                 onCheckedChange={(checked) => {
                   setAnimated(checked);
                   setAngle(angle % 360);
+                }}
+              >
+                <Switch.Thumb />
+              </Switch.Root>
+            </div>
+            <div className="flex-center-between switch">
+              <label htmlFor="showtri">Triangle</label>
+              <Switch.Root
+                checked={viewTriangle}
+                defaultChecked
+                id="showtri"
+                onCheckedChange={(checked) => {
+                  setViewTriangle(checked);
                 }}
               >
                 <Switch.Thumb />
@@ -69,13 +84,13 @@ function App() {
                 value="degrees"
                 onClick={() => setDisplayRadians(false)}
               >
-                degrees
+                deg
               </ToggleGroup.Item>
               <ToggleGroup.Item
                 value="radians"
                 onClick={() => setDisplayRadians(true)}
               >
-                radians
+                rad
               </ToggleGroup.Item>
             </ToggleGroup.Root>
           </div>

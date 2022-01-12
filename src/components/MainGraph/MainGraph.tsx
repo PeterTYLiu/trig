@@ -4,6 +4,7 @@ import "./MainGraph.scss";
 
 type MainGraphProps = {
   angle: number;
+  viewTriangle: boolean;
   viewSin: boolean;
   viewCos: boolean;
   viewTan: boolean;
@@ -13,6 +14,7 @@ type MainGraphProps = {
 };
 export default function MainGraph({
   angle,
+  viewTriangle,
   viewSin,
   viewCos,
   viewCot,
@@ -39,6 +41,16 @@ export default function MainGraph({
     //@ts-ignore
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvasSideLength, canvasSideLength);
+    // The triangle
+    ctx.fillStyle = "#ccd";
+    if (viewTriangle) {
+      ctx.beginPath();
+      ctx.moveTo(center, center);
+      ctx.lineTo(XCoordOnCircle, YCoordOnCircle);
+      ctx.lineTo(XCoordOnCircle, center);
+      ctx.lineTo(center, center);
+      ctx.fill();
+    }
     // Axes
     ctx.setLineDash([]);
     ctx.lineWidth = 1;
@@ -91,7 +103,7 @@ export default function MainGraph({
     ctx.arc(XCoordOnCircle, YCoordOnCircle, 5, 0, 7);
     ctx.fill();
     // The inner angle indicator
-    ctx.strokeStyle = "#111";
+    ctx.fillStyle = "#111";
     ctx.beginPath();
     ctx.arc(center, center, 20, 0, degToRad(360 - angle), true);
     ctx.stroke();
@@ -149,7 +161,16 @@ export default function MainGraph({
       ctx.lineTo(center + radius / Math.cos(degToRad(-angle)), center);
       ctx.stroke();
     }
-  }, [angle, viewSin, viewCos, viewTan, viewCsc, viewCot, viewSec]);
+  }, [
+    angle,
+    viewSin,
+    viewCos,
+    viewTan,
+    viewCsc,
+    viewCot,
+    viewSec,
+    viewTriangle,
+  ]);
 
   return (
     <div id="canvas-background">

@@ -3,6 +3,7 @@ $theme: rgb(0, 129, 235);
 $theme-light: rgb(196, 218, 233);
 $theme-dark: rgb(0, 88, 139);
 $control-height: 36px;
+$button-backgroud: rgb(243, 243, 243);
 
 * {
   margin: 0;
@@ -30,20 +31,25 @@ main {
 label {
   cursor: pointer;
 }
+button {
+  border: 1px solid grey;
+  background: $button-backgroud;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: $control-height;
+  border-radius: $button-radius;
+  cursor: pointer;
+  &:hover {
+    border-color: $theme-dark;
+    background: $theme-light;
+  }
+}
 div[role="group"] {
   display: flex;
   button {
-    border: 1px solid grey;
     border-left-width: 0.5px;
     border-right-width: 0.5px;
-    padding-left: 12px;
-    padding-right: 12px;
-    height: $control-height;
-    cursor: pointer;
-    &:hover {
-      border-color: $theme-dark;
-      background: $theme-light;
-    }
+    border-radius: 0;
     &[data-state="on"] {
       background-color: $theme;
       border-width: 1px;
@@ -64,7 +70,7 @@ div[role="group"] {
 }
 button[role="switch"] {
   height: 26px;
-  width: 48px;
+  width: 42px;
   position: relative;
   border: 1px solid #ffffff00;
   border-radius: 99px;
@@ -83,7 +89,7 @@ button[role="switch"] {
     transition: all 0.3s;
     background-color: white;
     &[data-state="checked"] {
-      left: 24px;
+      left: 18px;
     }
   }
 }
@@ -105,8 +111,13 @@ input {
   align-items: center;
   justify-content: space-between;
 }
-#switch {
+.switch {
   gap: 8px;
+  height: $control-height;
+  // padding: 0px 8px 0px 11px;
+  // background-color: $button-backgroud;
+  border-radius: $button-radius;
+  font-size: 14px;
 }
 #angle {
   border-radius: $button-radius;
