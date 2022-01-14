@@ -17,7 +17,7 @@ export default function Footer() {
           Minesweeper
         </a>
       </p>
-      <p>version 1.2 (12/01/2022)</p>
+      <p>version 1.2.1 (13/01/2022)</p>
     </footer>
   );
 }
